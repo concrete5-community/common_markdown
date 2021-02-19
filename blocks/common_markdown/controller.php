@@ -10,7 +10,7 @@ use Package;
 class Controller extends BlockController
 {
     protected $btInterfaceWidth = "600";
-    protected $btInterfaceHeight = "465";
+    protected $btInterfaceHeight = "490";
     protected $btTable = "btCommonMarkdown";
     protected $btWrapperClass = 'ccm-ui';
     protected $btDefaultSet = "basic";
@@ -41,6 +41,13 @@ class Controller extends BlockController
         $this->set('content', $this->convertToHtml($this->content));
     }
 
+    public function save($args)
+    {
+        $args['inlineHTML'] = isset($args['inlineHTML']) ? $args['inlineHTML'] : 0;
+
+        parent::save($args);
+    }
+
     /**
      * Convert Markdown to HTML.
      *
@@ -53,8 +60,7 @@ class Controller extends BlockController
         // Obtain a pre-configured Environment with all the CommonMark parsers/renderers ready-to-go
         $environment = Environment::createCommonMarkEnvironment();
 
-        // Enable HTML
-        $config = ['safe' => false];
+        $config = ['safe' => (boolean) !$this->inlineHTML];
 
         // Create the converter
         $converter = new CommonMarkConverter($config, $environment);
