@@ -53,8 +53,8 @@ class Controller extends BlockController
         // Obtain a pre-configured Environment with all the CommonMark parsers/renderers ready-to-go
         $environment = Environment::createCommonMarkEnvironment();
 
-        // Define configuration
-        $config = ['safe' => true];
+        // Enable HTML
+        $config = ['safe' => false];
 
         // Create the converter
         $converter = new CommonMarkConverter($config, $environment);
