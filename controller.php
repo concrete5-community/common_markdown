@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace Concrete\Package\CommonMarkdown;
 
 use BlockType;
@@ -8,16 +9,16 @@ class Controller extends Package
 {
     protected $pkgHandle = 'common_markdown';
     protected $appVersionRequired = '5.7.5';
-    protected $pkgVersion = '1.0.2';
+    protected $pkgVersion = '1.0.3';
 
     public function getPackageName()
     {
-        return t("Common Markdown");
+        return t('Common Markdown');
     }
 
     public function getPackageDescription()
     {
-        return t("Markdown editor that supports the CommonMark spec.");
+        return t('Markdown editor that supports the CommonMark spec.');
     }
 
     public function on_start()
@@ -38,7 +39,7 @@ class Controller extends Package
 
     public function installBlockTypes($pkg)
     {
-        if (!BlockType::getByHandle("common_markdown")) {
+        if (!BlockType::getByHandle('common_markdown')) {
             BlockType::installBlockType('common_markdown', $pkg);
         }
     }

@@ -1,9 +1,11 @@
-<?php 
-defined('C5_EXECUTE') or die("Access Denied.");
+<?php
+defined('C5_EXECUTE') or die('Access Denied.');
+
+/** @var string $content */
 ?>
 
 <div class="markdown-body">
-    <?php 
+    <?php
     echo $content;
     ?>
 </div>

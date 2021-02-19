@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace Concrete\Package\CommonMarkdown\Block\CommonMarkdown;
 
 use Concrete\Core\Block\BlockController;
@@ -18,20 +19,17 @@ class Controller extends BlockController
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = true;
-    protected $btCacheBlockOutputLifetime = CACHE_LIFETIME;
 
     protected $content;
 
     public function getBlockTypeName()
     {
-        return t("Markdown");
+        return t('Markdown');
     }
 
     public function getBlockTypeDescription()
     {
-        $p = Package::getByHandle('common_markdown');
-
-        return $p->getPackageDescription();
+        return t('Markdown editor that supports the CommonMark spec.');
     }
 
     public function view()
